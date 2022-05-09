@@ -40,4 +40,4 @@ Instead of:
 Failing test case is created under tests:
 SerdetestTest::serializeDeserialize_withSibling
 
-Github repo: []()
+[Github repo](https://github.com/bowika/micronaut-serialization-bugreport)
