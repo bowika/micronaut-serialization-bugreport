@@ -3,9 +3,9 @@ package serdetest;
 import io.micronaut.serde.annotation.Serdeable;
 
 @Serdeable
-public class SecondChild extends AbstractParent {
+public class SecondChild extends Parent {
     private int fieldOfSecond;
-    private AbstractParent sibling;
+    private Parent sibling;
 
     public int getFieldOfSecond() {
         return fieldOfSecond;
@@ -16,11 +16,11 @@ public class SecondChild extends AbstractParent {
         return this;
     }
 
-    public AbstractParent getSibling() {
+    public Parent getSibling() {
         return sibling;
     }
 
-    public SecondChild setSibling(AbstractParent sibling) {
+    public SecondChild setSibling(Parent sibling) {
         this.sibling = sibling;
         return this;
     }

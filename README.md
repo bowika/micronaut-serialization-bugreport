@@ -1,6 +1,6 @@
 ## Test case to show micronaut serialization failure
 
-Given this AbstractParent
+Given this Parent
 ```
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
@@ -10,20 +10,20 @@ Given this AbstractParent
     @JsonSubTypes.Type(value = SecondChild.class, name = "SecondChild")
 })
 @Serdeable
-public class AbstractParent {
+public class Parent {
 ```
 Having 2 child classes
 ```
 @Serdeable
-public class FirstChild extends AbstractParent {
+public class FirstChild extends Parent {
     private boolean fieldOfFirst;
 ```
 and
 ```
 @Serdeable
-public class SecondChild extends AbstractParent {
+public class SecondChild extends Parent {
     private int fieldOfSecond;
-    private AbstractParent sibling;
+    private Parent sibling;
 ```
 Then on serializing:
 ```
@@ -44,3 +44,5 @@ Failing test case is created under tests:
 SerdetestTest::serializeDeserialize_withSibling
 
 [Github repo](https://github.com/bowika/micronaut-serialization-bugreport)
+
+Note that marking Parent as abstract makes it even worse since it tries to instantiate it.

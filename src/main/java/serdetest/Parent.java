@@ -12,21 +12,22 @@ import io.micronaut.serde.annotation.Serdeable;
     @JsonSubTypes.Type(value = SecondChild.class, name = "SecondChild")
 })
 @Serdeable
-public class AbstractParent {
+public class Parent {
     protected String name;
 
     public String getName() {
         return name;
     }
 
-    public AbstractParent setName(String name) {
+    public Parent setName(String name) {
         this.name = name;
         return this;
     }
 
     @Override
     public String toString() {
-        return "AbstractParent{" +
+        return "" +
+            "Parent{" +
             "name='" + name + '\'' +
             '}';
     }

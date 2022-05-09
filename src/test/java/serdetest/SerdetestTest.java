@@ -24,7 +24,7 @@ class SerdetestTest {
     @Test
     void deserialize_withSiblingHappyPath() throws IOException {
         String json = "{\"type\":\"SecondChild\",\"fieldOfSecond\":1,\"sibling\":{\"name\":\"first\", \"type\": \"FirstChild\", \"fieldOfFirst\": true},\"name\":\"second\"}";
-        AbstractParent actual = mapper.readValue(json, AbstractParent.class);
+        Parent actual = mapper.readValue(json, Parent.class);
         Assertions.assertInstanceOf(SecondChild.class, actual);
         //sibling has to be FirstChild
         Assertions.assertInstanceOf(FirstChild.class, ((SecondChild)actual).getSibling());
@@ -44,7 +44,7 @@ class SerdetestTest {
 
         System.out.println(secondChild); //toString
         System.out.println(json); //bad deserialization
-        AbstractParent actual = mapper.readValue(json, AbstractParent.class);
+        Parent actual = mapper.readValue(json, Parent.class);
         System.out.println(actual); //toString
         //outer has to be SecondChild
         Assertions.assertInstanceOf(SecondChild.class, actual);
