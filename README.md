@@ -9,15 +9,18 @@ Given this AbstractParent
     @JsonSubTypes.Type(value = FirstChild.class, name = "FirstChild"),
     @JsonSubTypes.Type(value = SecondChild.class, name = "SecondChild")
 })
-public class AbstractParent
+@Serdeable
+public class AbstractParent {
 ```
 Having 2 child classes
 ```
+@Serdeable
 public class FirstChild extends AbstractParent {
     private boolean fieldOfFirst;
 ```
 and
 ```
+@Serdeable
 public class SecondChild extends AbstractParent {
     private int fieldOfSecond;
     private AbstractParent sibling;
